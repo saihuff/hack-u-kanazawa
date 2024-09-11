@@ -23,6 +23,9 @@ executable haskell-app
                      , Spock >= 0.11
                      , mtl
                      , text
+                     , postgresql-simple
+                     , aeson
+                     , containers
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities
