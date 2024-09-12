@@ -2,9 +2,11 @@
   hash: 982e698364b759ab16af4e95faeb0538a8b1921d362a86bb45d53611d8d215e0
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/README.md:
   hash: 4e764644a3f2bf3535982011770ad231f55cbad1992c1eba66003839657a5fe7
+/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Login.hs:
+  hash: a6b980d2224eeb9c4042a6e8ddd2eaab45b1779f4fad990020fbb2e48d237e06
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Register.hs:
-  hash: 2df2054142d29c38674b960913103ae845f73d7a60ca2cd227985d5a53bc4b78
+  hash: 5fb8428474395b4c1fbb6587c76c81e4fbe0a939fe878b26879534d286115b88
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Main.hs:
-  hash: b0b0a6031b56d88c27187c1cd5d1d11a1a8d1d5c4542b6bdcab06fb4ce2a535f
+  hash: f8b0c37749e49ea304291db64d7326eb85d467b2a58ba478fe25753ac05592e4
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/haskell-app.cabal:
   hash: f9ea79761afd1cae7d3567871a16980e85003c4183da30b0d46c714d2573191b
