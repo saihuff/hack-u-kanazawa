@@ -9,17 +9,17 @@ import Data.IORef
 import Control.Monad.IO.Class
 import Database.PostgreSQL.Simple
 import GHC.Generics (Generic)
+import qualified Data.Text as T
 
---User型の定義
 data User = User
-    { userName :: String
-    , userPassword :: String
-    } deriving (Show, Generic)
+        {userName :: String
+        ,userPassword :: String
+        } deriving (Show, Generic)
 
-instance FromJSON User
 instance ToJSON User
-instance FromRow User
+instance FromJSON User
 instance ToRow User
+instance FromRow User
 
 -- 新規ユーザ登録エンドポイント
 registerUser :: Connection -> User -> IO ()
