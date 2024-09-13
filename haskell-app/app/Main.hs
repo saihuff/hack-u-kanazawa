@@ -11,9 +11,11 @@ import Data.IORef
 import qualified Data.Text as T
 import Database.PostgreSQL.Simple
 import Data.Aeson
+import Data.Maybe (fromJust)
 
 import Account.Register (User, userName, registerUser)
 import Account.Login (loginUser)
+import Account.Userdata (getUserData)
 
 data MySession = MySession (Maybe String)
 data MyAppState = DummyAppState (IORef Int)
@@ -32,10 +34,6 @@ app :: SpockM () MySession AppState ()
 app =
     do get root $
            text "Hello World!"
---       get ("hello" <//> var) $ \name ->
---           do (DummyAppState ref) <- getState
---              visitorNumber <- liftIO $ atomicModifyIORef' ref $ \i -> (i+1, i+1)
---              text ("Hello " <> name <> ", you are visitor number " <> T.pack (show visitorNumber))
        post "/api/register" $ do
            user <- jsonBody'
            state <- getState 
@@ -52,3 +50,9 @@ app =
        post "/api/logout" $ do
            writeSession (MySession Nothing)
            Web.Spock.json ("LogOut Success" :: String)
+       get "/api/userdata" $ do
+           MySession user <- readSession
+           state <- getState
+           d <- liftIO $ getUserData (dbConn state) (fromJust user)
+           Web.Spock.json d
+
