@@ -13,9 +13,10 @@ import Database.PostgreSQL.Simple
 import Data.Aeson
 import Data.Maybe (fromJust)
 
-import Account.Register (User, userName, registerUser)
+import Account.Register (registerUser)
 import Account.Login (loginUser)
 import Account.Userdata (getUserData)
+import Account.UserTypes
 
 data MySession = MySession (Maybe String)
 data MyAppState = DummyAppState (IORef Int)

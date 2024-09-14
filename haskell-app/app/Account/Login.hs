@@ -13,7 +13,7 @@ import Control.Monad.IO.Class
 import Database.PostgreSQL.Simple
 import GHC.Generics (Generic)
 
-import Account.Register 
+import Account.UserTypes 
 
 --ログインのエンドポイント
 loginUser :: Connection -> User -> IO Bool

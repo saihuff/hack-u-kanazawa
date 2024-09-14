@@ -13,14 +13,14 @@ import Control.Monad.IO.Class
 import Database.PostgreSQL.Simple
 import GHC.Generics (Generic)
 
-import Account.Register
+import Account.UserTypes
 
-getUserData :: Connection -> String -> IO String
+getUserData :: Connection -> String -> IO UserData
 getUserData conn user = do
     let q = "SELECT id FROM users WHERE name = ?"
         r = "SELECT password FROM users WHERE name = ?"
         s = "SELECT time FROM users WHERE name = ?"
-    id <- query conn q (Only user) :: IO [Only Integer]
-    pw <- query conn r (Only user) :: IO [Only String]
-    tm <- query conn s (Only user) :: IO [Only Integer]
-    return $ user ++ show id ++ show pw ++ show tm
+    [id] <- query conn q (Only user) :: IO [Only Integer]
+    [pw] <- query conn r (Only user) :: IO [Only String]
+    [tm] <- query conn s (Only user) :: IO [Only Integer]
+    return $ UserData (fromOnly id) user (fromOnly pw) (fromOnly tm)

@@ -11,15 +11,7 @@ import Database.PostgreSQL.Simple
 import GHC.Generics (Generic)
 import qualified Data.Text as T
 
-data User = User
-        {userName :: String
-        ,userPassword :: String
-        } deriving (Show, Generic)
-
-instance ToJSON User
-instance FromJSON User
-instance ToRow User
-instance FromRow User
+import Account.UserTypes
 
 -- 新規ユーザ登録エンドポイント
 registerUser :: Connection -> User -> IO ()
