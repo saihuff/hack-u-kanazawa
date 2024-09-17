@@ -26,6 +26,10 @@ executable haskell-app
                      , postgresql-simple
                      , aeson
                      , containers
+                     , bytestring
+                     , http-conduit
+                     , HTTP
+                     , utf8-string
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities

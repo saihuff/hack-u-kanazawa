@@ -16,6 +16,6 @@ import Account.UserTypes
 -- 新規ユーザ登録エンドポイント
 registerUser :: Connection -> User -> IO ()
 registerUser conn (User name password) = do -- registerUser アプリの状態 ユーザ情報
-    let query = "INSERT INTO users (name, password) VALUES (?, ?)" -- クエリを定義
-    execute conn query (name, password) -- クエリに沿ってデータベース操作
+    let query = "INSERT INTO users (name, password, time) VALUES (?, ?, ?)" -- クエリを定義
+    execute conn query (name, password, 0 :: Int) -- クエリに沿ってデータベース操作
     return ()

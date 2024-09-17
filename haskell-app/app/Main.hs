@@ -12,11 +12,13 @@ import qualified Data.Text as T
 import Database.PostgreSQL.Simple
 import Data.Aeson
 import Data.Maybe (fromJust)
+import Data.ByteString.Lazy.UTF8
 
 import Account.Register (registerUser)
 import Account.Login (loginUser)
 import Account.Userdata (getUserData)
 import Account.UserTypes
+import Video.Process
 
 data MySession = MySession (Maybe String)
 data MyAppState = DummyAppState (IORef Int)
@@ -56,4 +58,8 @@ app =
            state <- getState
            d <- liftIO $ getUserData (dbConn state) (fromJust user)
            Web.Spock.json d
+       post "api/picture/" $ do
+           picture <- jsonBody'
+           res <- liftIO $ isAwake picture
+           Web.Spock.json res
 

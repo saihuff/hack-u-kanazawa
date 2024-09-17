@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify
 import cv2
 import numpy as np
 import dlib
+import base64
 from scipy.spatial import distance as dist
+import io
 
 app = Flask(__name__)
 
@@ -20,19 +22,19 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
+    try:
+        # Base64でエンコードされた画像データを受け取る
+        data = request.get_json()
+        if not data or 'getPicture' not in data:
+            return jsonify({'error': 'No image data provided'}), 400
 
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({'error': 'No selected file'}), 400
-
-    if file:
-        # 画像を読み込む
-        in_memory_file = file.read()
-        np_img = np.frombuffer(in_memory_file, np.uint8)
+        image_data = data['getPicture']
+        # Base64デコード
+        decoded_data = base64.b64decode(image_data)
+        np_img = np.frombuffer(decoded_data, np.uint8)
         img = cv2.imdecode(np_img, cv2.IMREAD_COLOR)
-        
+
+        # 画像をグレースケールに変換
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         rects = detector(gray, 0)
 
@@ -53,6 +55,9 @@ def upload_image():
                 return jsonify({'status': 'asleep'})
 
         return jsonify({'status': 'awake'})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
