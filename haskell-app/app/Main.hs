@@ -69,4 +69,10 @@ app =
            state <- getState
            d <- liftIO $ getFriendCode (dbConn state) (fromJust user)
            Web.Spock.json d
+       post "api/registerfriend/" $ do
+           friendid <- jsonBody'
+           MySession userid <- readSession
+           state <- getState
+           liftIO $ registerFriend (dbConn state) (fromJust userid) (friendID friendid)
+           Web.Spock.json ("friend registerd" :: String)
 

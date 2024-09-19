@@ -33,3 +33,10 @@ instance ToJSON UserData
 instance FromJSON UserData
 instance ToRow UserData
 instance FromRow UserData
+
+data FriendID = FriendID { friendID :: Int } deriving (Show, Generic)
+
+instance ToJSON FriendID
+instance FromJSON FriendID
+instance ToRow FriendID
+instance FromRow FriendID

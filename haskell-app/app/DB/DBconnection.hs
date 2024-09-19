@@ -19,3 +19,9 @@ getFriendCode conn userid = do
     let q = "SELECT friend_id FROM friends WHERE user_id = ?"
     [result] <- query conn q (Only userid) :: IO [Only Int]
     return $ fromOnly result
+
+registerFriend :: Connection -> Int -> Int -> IO ()
+registerFriend conn userid friendid = do
+    let q = "UPDATE friends SET friend = array_append(friend, ?) WHERE user_id = ?"
+    execute conn q (userid, friendid)
+    return ()
