@@ -75,4 +75,13 @@ app =
            state <- getState
            liftIO $ registerFriend (dbConn state) (fromJust userid) (friendID friendid)
            Web.Spock.json ("friend registerd" :: String)
-
+       get "api/friends/" $ do
+           MySession user <- readSession
+           state <- getState
+           d <- liftIO $ getFriends (dbConn state) (fromJust user)
+           Web.Spock.json d
+       get "api/getfriendscore/" $ do
+           MySession user <- readSession
+           state <- getState
+           d <- liftIO $ getFriendScore (dbConn state) (fromJust user)
+           Web.Spock.json d
