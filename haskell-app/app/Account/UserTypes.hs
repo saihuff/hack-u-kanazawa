@@ -22,10 +22,11 @@ instance ToRow User
 instance FromRow User
 
 data UserData = UserData
-        {userDataID :: Integer
+        {userDataID :: Int
         ,userDataName :: String
         ,userDataPassword :: String
-        ,userDataStudyTime :: Integer
+        ,userDataStudyTime :: Int
+        ,userDataScore :: Int
         } deriving (Show, Generic)
 
 instance ToJSON UserData

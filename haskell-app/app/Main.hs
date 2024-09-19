@@ -14,13 +14,14 @@ import Data.Aeson
 import Data.Maybe (fromJust)
 import Data.ByteString.Lazy.UTF8
 
-import Account.Register (registerUser)
-import Account.Login (loginUser)
-import Account.Userdata (getUserData)
+import Account.Register
+import Account.Login
+import Account.Userdata
 import Account.UserTypes
 import Video.Process
+import DB.DBconnection
 
-data MySession = MySession (Maybe String)
+data MySession = MySession (Maybe Int)
 data MyAppState = DummyAppState (IORef Int)
 
 data AppState = AppState { dbConn :: Connection }
@@ -45,9 +46,10 @@ app =
        post "/api/login" $ do
            user <- jsonBody'
            state <- getState
+           userid <- liftIO $ getUserID (dbConn state) user
            loginSucccess <- liftIO $ loginUser (dbConn state) user
            if loginSucccess
-              then do writeSession (MySession (Just (userName user)))
+              then do writeSession (MySession (Just userid)) -- Just内をidに変更する必要がある
                       Web.Spock.json ("Login Successfull" :: String)
               else Web.Spock.json ("Login Failed" :: String)
        post "/api/logout" $ do
@@ -62,4 +64,9 @@ app =
            picture <- jsonBody'
            res <- liftIO $ isAwake picture
            Web.Spock.json res
+       get "api/friendcode/" $ do
+           MySession user <- readSession
+           state <- getState
+           d <- liftIO $ getFriendCode (dbConn state) (fromJust user)
+           Web.Spock.json d
 

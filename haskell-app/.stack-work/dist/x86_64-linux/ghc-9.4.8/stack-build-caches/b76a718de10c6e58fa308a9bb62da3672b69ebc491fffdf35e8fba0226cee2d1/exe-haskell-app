@@ -7,11 +7,13 @@
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Register.hs:
   hash: 05865fd0c7e6be8397ef09911490125da46a19edc1a566a54d9f7ef11334833c
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/UserTypes.hs:
-  hash: 0c19393ac765cf57e2964dda5d681cd12cf9fc798c387c6e58a287b26f20707a
+  hash: f26844c71978a6daf34d00af05f53d9f85ef07fbebbb7e53b8633288ff59420f
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Userdata.hs:
-  hash: 0440354d5506bd44df8f2e615f81a1e7c87010b7c8ca218a0a9a6069ae36625a
+  hash: ef13c03053d21e3a9dba4f0d5c553436f0589d3ff43cdab4d6f96b6ee44c7ba4
+/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/DB/DBconnection.hs:
+  hash: 95c501e49da5f4af36b8e8ca5aacdba2972555b9555f05adc06dffe5c2e6834c
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Main.hs:
-  hash: 946473ff32804c0467f365cb0b80ff5b2976619e84c27847c6dcb3250c2522f0
+  hash: 4db52e6adc790e8017ca6cd6f4e62f02acb598c0e010a339af55ff71602a7ae8
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Video/Process.hs:
   hash: 6aa1593480674da311090a59096c56c0911c023c7f06103ab411c159163fcf2d
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/haskell-app.cabal:
