@@ -5,11 +5,11 @@
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Login.hs:
   hash: 38da4499c1f982fafb63de6ff9e3e3c085dbe4d3e60c673f4cc8a08381aaf0c2
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Register.hs:
-  hash: 05865fd0c7e6be8397ef09911490125da46a19edc1a566a54d9f7ef11334833c
+  hash: 422a418207f6cecad14d7005fe72fc8d509715cac02526c0967d47b1b80fd48f
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/UserTypes.hs:
   hash: f26844c71978a6daf34d00af05f53d9f85ef07fbebbb7e53b8633288ff59420f
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Userdata.hs:
-  hash: ef13c03053d21e3a9dba4f0d5c553436f0589d3ff43cdab4d6f96b6ee44c7ba4
+  hash: 4f9070722a2019a245abf3229a6fad5bf28680a171338e6e6cac89e3f8c9d7a5
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/DB/DBconnection.hs:
   hash: 95c501e49da5f4af36b8e8ca5aacdba2972555b9555f05adc06dffe5c2e6834c
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Main.hs:

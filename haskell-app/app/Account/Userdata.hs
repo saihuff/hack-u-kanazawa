@@ -29,6 +29,6 @@ getUserData conn userid = do
 
 getUserID :: Connection -> User -> IO Int
 getUserID conn user = do
-    let q = "SELECT name FROM users WHERE name = ?"
+    let q = "SELECT id FROM users WHERE name = ?"
     [result] <- query conn q (Only (userName user)) :: IO [Only Int]
     return $ fromOnly result
