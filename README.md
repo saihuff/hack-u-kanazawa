@@ -51,9 +51,12 @@ ALTER TABLE users ADD COLUMN fellsleep timestamp;
 
 # haskell-appの実行
 $ cd ~/(略)/hackukanazawa/haskell-app
+
 $ stack build
+
 $ stack exec haskell-app
 
 # python-appの実行
 $ cd ~/(略)/hackukanazawa/python-app
+
 $ python3 app.py
