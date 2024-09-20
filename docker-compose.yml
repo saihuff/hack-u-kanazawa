@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  haskell-app:
+    build:
+      context: ./haskell-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  python-app:
+    build:
+      context: ./python-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: your_db
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+    ports:
+      - "5432:5432"
+
