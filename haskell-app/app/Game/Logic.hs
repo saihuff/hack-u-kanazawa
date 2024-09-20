@@ -17,6 +17,7 @@ import Data.Time.LocalTime
 import Data.Fixed (Pico)
 
 import Game.GameTypes
+import Data.Int (Int)
 
 saveStartTime :: Connection -> Int -> IO ()
 saveStartTime conn userid = do
@@ -61,3 +62,4 @@ getStudyTime conn userid = do
         q = "SELECT TO_CHAR((CURRENT_TIMESTAMP AT TIME ZONE 'UTC') - starttime - sleeptime, 'YYYY-MM-DD HH24:MI:SS') FROM users WHERE id = ?"
     [result] <- query conn q (Only userid) :: IO [Only String]
     return $ fromOnly result
+
