@@ -1,7 +1,7 @@
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/CHANGELOG.md:
   hash: 982e698364b759ab16af4e95faeb0538a8b1921d362a86bb45d53611d8d215e0
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/README.md:
-  hash: 4e764644a3f2bf3535982011770ad231f55cbad1992c1eba66003839657a5fe7
+  hash: 2373f730492cd415670661813330e60f81730daf980670849a7b70917b51da41
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Login.hs:
   hash: 38da4499c1f982fafb63de6ff9e3e3c085dbe4d3e60c673f4cc8a08381aaf0c2
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Account/Register.hs:
@@ -12,9 +12,15 @@
   hash: 4f9070722a2019a245abf3229a6fad5bf28680a171338e6e6cac89e3f8c9d7a5
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/DB/DBconnection.hs:
   hash: 986e627348ebe3b3aa69afbd4a41a27ee0989042a4c1276da001cc90a8999702
+/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Game/Data.hs:
+  hash: b8a78bc773d58720d742678eda3b1fa7f22e84136bd3b0bbcb2789aa6108590a
+/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Game/GameTypes.hs:
+  hash: 3b46c620d3d30b8e170e80cf9da24d28a64ea4170fb87fd4794aecb74e6df469
+/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Game/Logic.hs:
+  hash: f8de64b3649134b58f1d772e5531f1f6d57c3199c8688593f73b49b097598119
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Main.hs:
-  hash: 23941eb3f6dbcecf2704be4d5d117276052dd3c2e96134974364175cd771a285
+  hash: ee4298f15a3077ff8b70b6d3be52fbb355003aed0c07a13866b3cd9d5d634ce3
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/app/Video/Process.hs:
   hash: 6aa1593480674da311090a59096c56c0911c023c7f06103ab411c159163fcf2d
 /home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/haskell-app.cabal:
-  hash: 15df327f9e2b9dd95e8a993e9aec78d44f5fbed054874d60cb471c5c4adc77fd
+  hash: 0a22b018dfc3abfc17850bdfa3f5634bce3e3be9f39d50209a2ac7da9d686463

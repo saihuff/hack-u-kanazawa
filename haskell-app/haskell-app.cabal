@@ -30,6 +30,7 @@ executable haskell-app
                      , http-conduit
                      , HTTP
                      , utf8-string
+                     , time
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities

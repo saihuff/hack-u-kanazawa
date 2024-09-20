@@ -110,6 +110,16 @@
   (major1) == 2 && (major2) <  0 || \
   (major1) == 2 && (major2) == 0 && (minor) <= 2)
 #endif /* MIN_VERSION_text */
+/* package time-1.12.2 */
+#ifndef VERSION_time
+#define VERSION_time "1.12.2"
+#endif /* VERSION_time */
+#ifndef MIN_VERSION_time
+#define MIN_VERSION_time(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  12 || \
+  (major1) == 1 && (major2) == 12 && (minor) <= 2)
+#endif /* MIN_VERSION_time */
 /* package utf8-string-1.0.2 */
 #ifndef VERSION_utf8_string
 #define VERSION_utf8_string "1.0.2"
@@ -213,7 +223,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "haskell-app-0.1.0.0-GMk3SEB2I7DigEPF6AkI5-haskell-app"
+#define CURRENT_COMPONENT_ID "haskell-app-0.1.0.0-7SfWses8UQH1cZRGv5SELs-haskell-app"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

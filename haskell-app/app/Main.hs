@@ -20,6 +20,9 @@ import Account.Userdata
 import Account.UserTypes
 import Video.Process
 import DB.DBconnection
+import Game.Data
+import Game.Logic
+import Game.GameTypes
 
 data MySession = MySession (Maybe Int)
 data MyAppState = DummyAppState (IORef Int)
@@ -85,3 +88,12 @@ app =
            state <- getState
            d <- liftIO $ getFriendScore (dbConn state) (fromJust user)
            Web.Spock.json d
+       post "api/gamestart/" $ do
+           MySession user <- readSession
+           state <- getState
+           liftIO $ saveStartTime (dbConn state) (fromJust user)
+       post "api/score" $ do
+           s <- jsonBody'
+           MySession user <- readSession
+           state <- getState
+           liftIO $ updateScore (dbConn state) (fromJust user) (score s)
