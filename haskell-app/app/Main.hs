@@ -12,7 +12,8 @@ import qualified Data.Text as T
 import Database.PostgreSQL.Simple
 import Data.Aeson
 import Data.Maybe (fromJust)
-import Data.ByteString.Lazy.UTF8
+import Data.ByteString.Char8 as BSC
+import Data.ByteString as BS
 
 import Account.Register
 import Account.Login
@@ -66,7 +67,19 @@ app =
        post "api/picture/" $ do
            picture <- jsonBody'
            res <- liftIO $ isAwake picture
-           Web.Spock.json res
+           MySession userid <- readSession
+           state <- getState
+           let s = status .fromJust $ (Data.Aeson.decode (BSC.fromStrict (BSC.pack res)) :: Maybe Status)
+           st <- liftIO $ currentStatus (dbConn state) (fromJust userid)
+           if s == "awake"
+              then if st == "awake"
+                      then Web.Spock.json res
+                      else do liftIO $ changeStatus (dbConn state) (fromJust userid) "awake"
+                              Web.Spock.json res
+              else if st == "asleep"
+                      then Web.Spock.json res
+                      else do liftIO $ changeStatus (dbConn state) (fromJust userid) "asleep"
+                              Web.Spock.json res
        get "api/friendcode/" $ do
            MySession user <- readSession
            state <- getState
@@ -91,9 +104,16 @@ app =
        post "api/gamestart/" $ do
            MySession user <- readSession
            state <- getState
+           liftIO $ Game.Logic.setStatus (dbConn state) (fromJust user) "awake"
            liftIO $ saveStartTime (dbConn state) (fromJust user)
        post "api/score" $ do
            s <- jsonBody'
            MySession user <- readSession
            state <- getState
            liftIO $ updateScore (dbConn state) (fromJust user) (score s)
+       post "api/gamefinish" $ do
+           MySession user <- readSession
+           state <- getState
+           liftIO $ Game.Logic.setStatus (dbConn state) (fromJust user) "notStudy"
+           d <- liftIO $ getStudyTime (dbConn state) (fromJust user)
+           Web.Spock.json d

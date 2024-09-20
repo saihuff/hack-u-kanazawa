@@ -20,6 +20,11 @@ data Picture = Picture { getPicture :: T.Text } deriving (Show, Generic)
 instance FromJSON Picture
 instance ToJSON Picture
 
+data Status = Status { status :: String } deriving (Show, Generic)
+
+instance FromJSON Status
+instance ToJSON Status
+
 isAwake :: Picture -> IO String
 isAwake p = do
     let picture = encode p
