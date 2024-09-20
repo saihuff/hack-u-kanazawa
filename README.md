@@ -33,7 +33,7 @@ ALTER TABLE users ADD COLUMN friends ;
 CREATE TABLE friends (
     user_id INT REFERENCES users(id),
     friend_id INT REFERENCES users(id),
-    status VARCHAR(50) NOT NULL, -- 例: 'pending', 'accepted', 'blocked'
+    status VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id, friend_id),
     CONSTRAINT unique_friendship UNIQUE (user_id, friend_id)
