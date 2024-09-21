@@ -58,8 +58,7 @@ setStatus conn userid st = do
 
 getStudyTime :: Connection -> Int -> IO String
 getStudyTime conn userid = do
-    let -- q = "SELECT EXTRACT(epoch FROM (CURRENT_TIMESTAMP AT TIME ZONE 'UTC') - starttime - sleeptime) AS interval_seconds FROM users WHERE id = ?"
-        q = "SELECT TO_CHAR((CURRENT_TIMESTAMP AT TIME ZONE 'UTC') - starttime - sleeptime, 'YYYY-MM-DD HH24:MI:SS') FROM users WHERE id = ?"
+    let q = "SELECT TO_CHAR((CURRENT_TIMESTAMP AT TIME ZONE 'UTC') - starttime - sleeptime, 'YYYY-MM-DD HH24:MI:SS') FROM users WHERE id = ?"
     [result] <- query conn q (Only userid) :: IO [Only String]
     return $ fromOnly result
 

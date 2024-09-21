@@ -43,7 +43,7 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 bindir     = "/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/.stack-work/install/x86_64-linux-tinfo6/0e4c13b4e371f97e3df1bdf67493625f4a5186f58555f7e79e775b6b7103037e/9.4.8/bin"
-libdir     = "/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/.stack-work/install/x86_64-linux-tinfo6/0e4c13b4e371f97e3df1bdf67493625f4a5186f58555f7e79e775b6b7103037e/9.4.8/lib/x86_64-linux-ghc-9.4.8/haskell-app-0.1.0.0-7SfWses8UQH1cZRGv5SELs-haskell-app"
+libdir     = "/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/.stack-work/install/x86_64-linux-tinfo6/0e4c13b4e371f97e3df1bdf67493625f4a5186f58555f7e79e775b6b7103037e/9.4.8/lib/x86_64-linux-ghc-9.4.8/haskell-app-0.1.0.0-D4QiQXVX0Aq2Uh5l0qSyk2-haskell-app"
 dynlibdir  = "/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/.stack-work/install/x86_64-linux-tinfo6/0e4c13b4e371f97e3df1bdf67493625f4a5186f58555f7e79e775b6b7103037e/9.4.8/lib/x86_64-linux-ghc-9.4.8"
 datadir    = "/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/.stack-work/install/x86_64-linux-tinfo6/0e4c13b4e371f97e3df1bdf67493625f4a5186f58555f7e79e775b6b7103037e/9.4.8/share/x86_64-linux-ghc-9.4.8/haskell-app-0.1.0.0"
 libexecdir = "/home/saihuf/Haskell/Projects/hackukanazawa/haskell-app/.stack-work/install/x86_64-linux-tinfo6/0e4c13b4e371f97e3df1bdf67493625f4a5186f58555f7e79e775b6b7103037e/9.4.8/libexec/x86_64-linux-ghc-9.4.8/haskell-app-0.1.0.0"

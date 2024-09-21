@@ -31,6 +31,9 @@ executable haskell-app
                      , HTTP
                      , utf8-string
                      , time
+                     , wai-cors
+                     , wai
+                     , wai-extra
   ghc-options:         -Wall
                        -Wcompat
                        -Widentities

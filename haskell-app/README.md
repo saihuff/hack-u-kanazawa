@@ -45,3 +45,10 @@ response -> ["<フレンド1>", "<フレンド2>", ... , "<フレンドn>"]
 
 ## GET ~api/getfriendscore
 response -> [["<フレンド1のユーザーネーム>", <フレンド1のスコア>], ["<フレンド2>", <フレンド2のスコア>], ... , ["<フレンドn>", <フレンドnのスコア>]]
+
+## POST ~/api/gamestart
+response -> なし
+ゲーム開始のセットアップをする
+
+## POST ~/api/gamefinish
+resopnse -> "HH:MM:SS"

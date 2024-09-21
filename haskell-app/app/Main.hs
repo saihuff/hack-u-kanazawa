@@ -14,6 +14,9 @@ import Data.Aeson
 import Data.Maybe (fromJust)
 import Data.ByteString.Char8 as BSC
 import Data.ByteString as BS
+import Network.Wai.Middleware.Cors (cors, simpleCorsResourcePolicy, corsOrigins, simpleMethods, simpleCors, corsMethods)
+import Network.Wai (Middleware)
+import Network.Wai.Middleware.AddHeaders (addHeaders)
 
 import Account.Register
 import Account.Login
@@ -30,6 +33,27 @@ data MyAppState = DummyAppState (IORef Int)
 
 data AppState = AppState { dbConn :: Connection }
 
+policy = simpleCorsResourcePolicy
+    { corsOrigins = Just (["https://ohasoma.github.io"], True)
+    , corsMethods = ["GET", "POST", "OPTIONS"]
+    }
+
+-- Middleware to handle CORS preflight requests and add necessary headers
+corsMiddleware :: Middleware
+corsMiddleware = cors (const $ Just policy)
+
+-- Add necessary headers for CORS in every response
+addCORSHeaders :: Middleware
+addCORSHeaders = addHeaders [("Access-Control-Allow-Origin", "https://ohasoma.github.io"), ("Access-Control-Allow-Headers", "Content-Type")]
+
+preflight :: SpockM () MySession AppState ()
+preflight = do
+    hookRoute OPTIONS "/api/picture" $ do
+        setHeader "Access-Control-Allow-Origin" "https://ohasoma.github.io"
+        setHeader "Access-Control-Allow-Methods" "GET, POST, OPTIONS"
+        setHeader "Access-Control-Allow-Headers" "Content-Type"
+        text ""
+
 main :: IO ()
 main =
     do ref <- newIORef 0
@@ -40,8 +64,10 @@ main =
 
 app :: SpockM () MySession AppState ()
 app =
-    do get root $
-           text "Hello World!"
+    do middleware corsMiddleware
+       middleware addCORSHeaders
+       preflight
+       get root $ text "Hello World!"
        post "/api/register" $ do
            user <- jsonBody'
            state <- getState 
